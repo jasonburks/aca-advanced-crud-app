@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Form</title>
+</head>
+<body>
+  <a href="/posts">Back</a>
+  <form action="/posts/<% if(post) { %><%= post._id + '?_method=PUT' %><% } %>" method="post">
+    <input type="author" name="author" placeholder="Author" value="<% if(post) { %><%= post.author %><% } %>" />
+    <input type="date" name="date" placeholder="Date" value="<% if(post) { %><%= post.date %><% } %>" />
+    <input type="text" name="text" placeholder="Blog Text" value="<% if(post) { %><%= post.text %><% } %>" />
+    <input type="submit" value="Submit" />
+  </form>
+  <%if (post) { %>
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="post">
+      <input type="submit" value="DELETE" />
+    </form>
+  <% } %>
+</body>
+</html>

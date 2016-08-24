@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Posts</title>
+</head>
+<body>
+  <a href="/posts/new/">NEW POST</a>
+
+  <ul>
+    <% posts.forEach((post) => { %>
+    <li> <%= post.author %> <%= post.date %> <%= post.text %> <a href="/posts/<%= post._id %>/edit">edit</a> <a href="/posts/<%= post.id %>">view</a> </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
